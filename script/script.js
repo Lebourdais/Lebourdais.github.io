@@ -150,13 +150,13 @@ async function load_publications() {
   const publi = await response.json();
   console.log(publi);
   var publi_field = document.getElementById("publications")
-  console.log(publi_field)
+  
   var docs = publi.response.docs
   docs.forEach(element => {
-    let title_str = docs.title_s
-    let author_str = docs.authFullName_s
-    let conf_str = docs.conferenceTitle_s ?? "ArXiv"
-    let year_str = docs.conferenceStartDateY_i ?? docs.submittedDateY_i
+    let title_str = element.title_s
+    let author_str = element.authFullName_s
+    let conf_str = element.conferenceTitle_s ?? "ArXiv"
+    let year_str = element.conferenceStartDateY_i ?? element.submittedDateY_i
     var publi_html = document.createElement('ul');
     var title = document.createElement('li');
     var author = document.createElement('li');
