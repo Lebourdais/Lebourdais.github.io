@@ -145,9 +145,9 @@ imgTargets.forEach(img => imgObserver.observe(img));
 let url = "https://api.archives-ouvertes.fr/search/?q=authFullName_t:'martin lebourdais'&wt=json"
 async function load_publications() {
   const response = await fetch(url);
-  console.log(response);
-  const publi = response.json();
   
+  const publi = await response.json();
+  console.log(publi);
   let publi_field = document.getElementsByClassName("publications")
 
   publi.forEach(element => {
