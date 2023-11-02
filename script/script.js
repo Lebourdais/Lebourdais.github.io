@@ -143,7 +143,7 @@ imgTargets.forEach(img => imgObserver.observe(img));
 
 let fields = "title_s,authFullName_s,conferenceTitle_s,conferenceStartDateY_i,submittedDateY_i"
 
-let url = "https://api.archives-ouvertes.fr/search/?q=authFullName_t:'martin lebourdais'&wt=json&fl="+fields
+let url = "https://api.archives-ouvertes.fr/search/?q=authFullName_t:'martin lebourdais'&wt=json&sort=submittedDateY_i desc&fl="+fields
 async function load_publications() {
   const response = await fetch(url);
   
