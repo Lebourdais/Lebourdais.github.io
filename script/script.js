@@ -150,7 +150,7 @@ async function load_publications() {
   const publi = await response.json();
   console.log(publi);
   let publi_field = document.getElementsByClassName("publications")
-  var docs = publi.docs
+  var docs = publi.response.docs
   docs.forEach(element => {
     let title_str = docs.title_s
     let author_str = docs.authFullName_s
