@@ -280,3 +280,22 @@ const slider = function () {
   });
 };
 slider();
+
+
+let url = "http://api.archives-ouvertes.fr/search/?qa[authFullName_t][]=martin lebourdais&wt=json"
+async function load_publications() {
+  const response = await fetch(url);
+  const publi = await response.json();
+  console.log(publi);
+  let publi_field = document.getElementByClass("publications")
+
+  publi.forEach(element => {
+    publi_field.inner_html += element
+  });
+
+  }
+load_publications();
+
+
+}
+
