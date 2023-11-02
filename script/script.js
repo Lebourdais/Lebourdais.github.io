@@ -281,24 +281,7 @@ const slider = function () {
 };
 slider();
 
-function makeUL(array) {
-  // Create the list element:
-  var list = document.createElement('ul');
 
-  for (var i = 0; i < array.length; i++) {
-      // Create the list item:
-      var item = document.createElement('li');
-
-      // Set its contents:
-      item.appendChild(document.createTextNode(array[i]));
-
-      // Add it to the list:
-      list.appendChild(item);
-  }
-
-  // Finally, return the constructed list:
-  return list;
-}
 let url = "http://api.archives-ouvertes.fr/search/?q=authFullName_t:'martin lebourdais'&wt=json"
 async function load_publications() {
   const response = await fetch(url);
@@ -307,11 +290,11 @@ async function load_publications() {
   let publi_field = document.getElementByClass("publications")
 
   publi.forEach(element => {
-    var publi_html = document.createElement('ul')
-    var title = document.createElement('li')
-    var author = document.createElement('li')
-    var conf = document.createElement('li')
-    var year = document.createElement('li')
+    var publi_html = document.createElement('ul');
+    var title = document.createElement('li');
+    var author = document.createElement('li');
+    var conf = document.createElement('li');
+    var year = document.createElement('li');
     title.appendChild(document.createTextNode("Test Title"))
     author.appendChild(document.createTextNode("Test authors 1, 2, 3"))
     conf.appendChild(document.createTextNode("Test Conf"))
@@ -328,5 +311,4 @@ async function load_publications() {
 load_publications();
 
 
-}
 
