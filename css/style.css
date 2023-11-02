@@ -26,7 +26,7 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   color: #444;
   line-height: 1.9;
@@ -35,7 +35,8 @@ body {
 
 /* GENERAL ELEMENTS */
 .section {
-  padding: 15rem 3rem;
+  padding: 12rem 3rem;
+  
   border-top: 1px solid #ddd;
 
   transition: transform 1s, opacity 1s;
@@ -43,12 +44,12 @@ body {
 
 .section--hidden {
   opacity: 0;
-  transform: translateY(8rem);
+  transform: translateY(6rem);
 }
 
 .section__title {
   max-width: 80rem;
-  margin: 0 auto 8rem auto;
+  margin: 0 auto 6rem auto;
 }
 
 .section__description {
