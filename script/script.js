@@ -148,7 +148,7 @@ async function load_publications() {
   console.log(response);
   const publi = response.json();
   
-  let publi_field = document.getElementByClass("publications")
+  let publi_field = document.getElementsByClassName("publications")
 
   publi.forEach(element => {
     var publi_html = document.createElement('ul');
