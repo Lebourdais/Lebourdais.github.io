@@ -673,18 +673,19 @@ h4 {
   font-weight: 400;
 }
 
-.publication ul{
+.publication{
   list-style-type: none;
+  margin:0 0 10px 0;
 }
-.title li{
+.title{
   font-size: 2.25rem;
 }
-.author li{
+.author{
   font-size: 1.8rem;
 }
-.conf li{
+.conf{
   font-size: 1.7rem;
 }
-.year li{
+.year{
   font-size: 1.7rem;
 }
