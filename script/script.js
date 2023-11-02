@@ -141,25 +141,30 @@ const imgObserver = new IntersectionObserver(loadImg, {
 imgTargets.forEach(img => imgObserver.observe(img));
 
 
+let fields = "title_s,authFullName_s,conferenceTitle_s,conferenceStartDateY_i"
 
-let url = "https://api.archives-ouvertes.fr/search/?q=authFullName_t:'martin lebourdais'&wt=json"
+let url = "https://api.archives-ouvertes.fr/search/?q=authFullName_t:'martin lebourdais'&wt=json&fl="+fields
 async function load_publications() {
   const response = await fetch(url);
   
   const publi = await response.json();
   console.log(publi);
   let publi_field = document.getElementsByClassName("publications")
-
-  publi.forEach(element => {
-    var publi_html = document.createElement('ul');
+  var docs = publi.docs
+  docs.forEach(element => {
+    let title_str = docs.title_s
+    let author_str = docs.authFullName_s
+    let conf_str = docs.conferenceTitle_s
+    let year_str = docs.conferenceStartDateY_i
+    let var publi_html = document.createElement('ul');
     var title = document.createElement('li');
     var author = document.createElement('li');
     var conf = document.createElement('li');
     var year = document.createElement('li');
-    title.appendChild(document.createTextNode("Test Title"))
-    author.appendChild(document.createTextNode("Test authors 1, 2, 3"))
-    conf.appendChild(document.createTextNode("Test Conf"))
-    year.appendChild(document.createTextNode("2022"))
+    title.appendChild(document.createTextNode(title_str))
+    author.appendChild(document.createTextNode(author_str))
+    conf.appendChild(document.createTextNode(conf_str))
+    year.appendChild(document.createTextNode(year_str))
     publi_html.appendChild(title)
     publi_html.appendChild(author)
     publi_html.appendChild(conf)
