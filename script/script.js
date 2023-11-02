@@ -158,10 +158,15 @@ async function load_publications() {
     let conf_str = element.conferenceTitle_s ?? "ArXiv"
     let year_str = element.conferenceStartDateY_i ?? element.submittedDateY_i
     var publi_html = document.createElement('ul');
+    publi_html.classList.add('publication');
     var title = document.createElement('li');
+    title.classList.add('title');
     var author = document.createElement('li');
+    author.classList.add('author');
     var conf = document.createElement('li');
+    conf.classList.add('conf');
     var year = document.createElement('li');
+    year.classList.add('year');
     title.appendChild(document.createTextNode(title_str))
     author.appendChild(document.createTextNode(author_str))
     conf.appendChild(document.createTextNode(conf_str))
