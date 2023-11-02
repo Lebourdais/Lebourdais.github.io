@@ -156,7 +156,7 @@ async function load_publications() {
     let author_str = docs.authFullName_s
     let conf_str = docs.conferenceTitle_s
     let year_str = docs.conferenceStartDateY_i
-    let var publi_html = document.createElement('ul');
+    var publi_html = document.createElement('ul');
     var title = document.createElement('li');
     var author = document.createElement('li');
     var conf = document.createElement('li');
