@@ -141,7 +141,7 @@ const imgObserver = new IntersectionObserver(loadImg, {
 imgTargets.forEach(img => imgObserver.observe(img));
 
 
-let fields = "title_s,authFullName_s,conferenceTitle_s,conferenceStartDateY_i"
+let fields = "title_s,authFullName_s,conferenceTitle_s,conferenceStartDateY_i,submittedDateY_i"
 
 let url = "https://api.archives-ouvertes.fr/search/?q=authFullName_t:'martin lebourdais'&wt=json&fl="+fields
 async function load_publications() {
@@ -155,8 +155,8 @@ async function load_publications() {
   docs.forEach(element => {
     let title_str = docs.title_s
     let author_str = docs.authFullName_s
-    let conf_str = docs.conferenceTitle_s
-    let year_str = docs.conferenceStartDateY_i
+    let conf_str = docs.conferenceTitle_s ?? "ArXiv"
+    let year_str = docs.conferenceStartDateY_i ?? docs.submittedDateY_i
     var publi_html = document.createElement('ul');
     var title = document.createElement('li');
     var author = document.createElement('li');
