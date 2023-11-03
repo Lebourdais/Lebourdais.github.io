@@ -35,8 +35,8 @@ body {
 
 /* GENERAL ELEMENTS */
 .section {
-  padding: 12rem 3rem;
-  
+  padding: 15rem 3rem;
+
   border-top: 1px solid #ddd;
 
   transition: transform 1s, opacity 1s;
@@ -44,12 +44,12 @@ body {
 
 .section--hidden {
   opacity: 0;
-  transform: translateY(6rem);
+  transform: translateY(8rem);
 }
 
 .section__title {
-  max-width: 80rem;
-  margin: 0 auto 6rem auto;
+  max-width: 150rem;
+  margin: 0 auto 8rem auto;
 }
 
 .section__description {
