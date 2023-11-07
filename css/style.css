@@ -748,8 +748,8 @@ h4 {
   color: white;
 }
 
-/* Twitter */
-.fa-twitter {
-  background: #55ACEE;
-  color: white;
-} 
+#logo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
