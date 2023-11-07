@@ -154,7 +154,7 @@ async function load_publications() {
   var docs = publi.response.docs
   docs.forEach(element => {
     let title_str = element.title_s
-    let link_str = linkExtUrl_s ?? uri_s
+    let link_str = element.linkExtUrl_s ?? element.uri_s
     let author_str = element.authFullName_s.join(", ")
     let conf_str = element.conferenceTitle_s ?? "ArXiv"
     let year_str = element.conferenceStartDateY_i ?? element.submittedDateY_i
