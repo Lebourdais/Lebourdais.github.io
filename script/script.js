@@ -141,7 +141,7 @@ const imgObserver = new IntersectionObserver(loadImg, {
 imgTargets.forEach(img => imgObserver.observe(img));
 
 
-let fields = "title_s,authFullName_s,conferenceTitle_s,conferenceStartDateY_i,submittedDateY_i"
+let fields = "title_s,authFullName_s,conferenceTitle_s,conferenceStartDateY_i,submittedDateY_i,linkExtUrl_s,uri_s"
 
 let url = "https://api.archives-ouvertes.fr/search/?q=authFullName_t:'martin lebourdais'&wt=json&sort=submittedDateY_i desc&fl="+fields
 async function load_publications() {
@@ -154,13 +154,18 @@ async function load_publications() {
   var docs = publi.response.docs
   docs.forEach(element => {
     let title_str = element.title_s
-    let author_str = element.authFullName_s
+    let link_str = linkExtUrl_s ?? uri_s
+    let author_str = element.authFullName_s.join(", ")
     let conf_str = element.conferenceTitle_s ?? "ArXiv"
     let year_str = element.conferenceStartDateY_i ?? element.submittedDateY_i
     var publi_html = document.createElement('ul');
+    var link = document.createElement('a');
+
     publi_html.classList.add('publication');
     var title = document.createElement('li');
     title.classList.add('title');
+    
+    
     var author = document.createElement('li');
     author.classList.add('author');
     var conf = document.createElement('li');
@@ -175,8 +180,9 @@ async function load_publications() {
     publi_html.appendChild(author)
     publi_html.appendChild(conf)
     publi_html.appendChild(year)
-
-    publi_field.appendChild(publi_html)
+    link.appendChild(publi_html)
+    link.href=link_str
+    publi_field.appendChild(link)
   });
 
   }
